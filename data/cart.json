@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "brand": "adidas",
+    "model": "Superstar",
+    "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+    "price": 99.99,
+    "quantity": 1,
+    "size": 8
+  },
+  {
+    "id": 2,
+    "brand": "nike",
+    "model": "Air Max",
+    "image": "https://images.stockx.com/360/adidas-Superstar-CLOT-By-Edison-Chen-Black/Images/adidas-Superstar-CLOT-By-Edison-Chen-Black/Lv2/img01.jpg?fm=avif&auto=compress&w=576&dpr=2&updated_at=1712687040&h=384&q=60",
+    "price": 129.99,
+    "quantity": 1,
+    "size": 9
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "Nike",
+    "discount": 0.12,
+    "model": "Ben & Jerry's Chunky Dunky",
+    "price": 1190
+  },
+  {
+    "brand": "Gucci",
+    "discount": 0.08,
+    "model": "Gucci x The North Face Edition GG Sandal",
+    "price": 333
+  },
+  {
+    "brand": "Nike",
+    "discount": 0.3,
+    "model": "Kobe 6 Protro",
+    "price": 405
+  }
+]
