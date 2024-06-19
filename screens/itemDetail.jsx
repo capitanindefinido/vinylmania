@@ -24,7 +24,7 @@ export const ItemDetail = () => {
 
   const item = products.find(product => product.id === params.productId)
   const { brand, image, model, price } = item
-  const SIZES = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+  const SIZES = ["Cassette", "CD", "Vinilo"]
 
   const handleSize = size => {
     setSelectedSize(size)
@@ -48,13 +48,13 @@ export const ItemDetail = () => {
             style={styles.image}
             resizeMode='contain'
           />
-          <Text style={styles.titleSection}>Details</Text>
+          <Text style={styles.titleSection}>Detalles</Text>
           <View style={styles.info}>
             <Text style={styles.text}>{brand}</Text>
             <Text style={styles.text}>{model}</Text>
             <Text style={styles.text}>{formatPrice(price)}</Text>
           </View>
-          <Text style={styles.titleSection}>Size</Text>
+          <Text style={styles.titleSection}>Formato</Text>
           <View style={styles.sizes}>
             {SIZES.map(size => {
               const isSelected = selectedSize === size
@@ -101,6 +101,8 @@ const styles = StyleSheet.create({
   },
   titleSection: {
     fontFamily: 'Unbounded-Bold',
+    textAlign: 'center',
+    fontSize: 16
   },
   text: {
     textTransform: 'capitalize',
@@ -113,8 +115,8 @@ const styles = StyleSheet.create({
   size: {
     borderWidth: 2,
     borderColor: theme.colors.gray[500],
-    height: 40,
-    width: 40,
+    height: 80,
+    width: 80,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 40,
@@ -122,8 +124,8 @@ const styles = StyleSheet.create({
   selectedSize: {
     borderColor: theme.colors.primary[600],
     borderWidth: 2,
-    height: 40,
-    width: 40,
+    height: 80,
+    width: 80,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 40,

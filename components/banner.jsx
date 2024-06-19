@@ -2,14 +2,16 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 
 export const Banner = () => (
   <ImageBackground
-    source={require('../assets/home/vinilmania.png')}
+    source={require('../assets/home/banner_music.jpg')}
     resizeMode='cover'
     style={{ borderRadius: 16, overflow: 'hidden' }}
   >
     <View style={styles.banner}>
-      <Text style={styles.text}>Discos, Cassettes y Vinilos para Maniacos</Text>
+    <Text style={styles.text}>Discos, Cassettes y Vinilos para Maniacos</Text>
     </View>
+    
   </ImageBackground>
+  
 )
 
 const styles = StyleSheet.create({
@@ -22,7 +24,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    color: 'yellow',
+    color: 'black',
     fontFamily: 'Unbounded-Bold',
     fontSize: 24,
   },

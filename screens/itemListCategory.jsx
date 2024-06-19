@@ -60,7 +60,7 @@ export const ItemListCategory = () => {
     <View style={styles.itemListCategories}>
       <SearchInput
         onChangeText={handleSearch}
-        placeholder='Buscar zapatillas aquí...'
+        placeholder='Buscar discos aquí...'
         value={textToSearch}
       />
       <FlatList
@@ -76,7 +76,7 @@ export const ItemListCategory = () => {
       />
       {productsFiltered && productsFiltered.length === 0 ? (
         <Text>
-          No se han encontrado zapatillas con la búsqueda "{textToSearch}"
+          No se han encontrado discos con la búsqueda "{textToSearch}"
         </Text>
       ) : null}
     </View>

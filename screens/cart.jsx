@@ -4,7 +4,7 @@ import { CartItem } from '../components/cartItem'
 import { formatPrice } from '../utils/price'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { removeItem } from '../features/cart/cartSlice'
+import { removeItem, clearCart } from '../features/cart/cartSlice'
 import { usePostOrderMutation } from '../services/shopService'
 import { Button } from '../components/button'
 
@@ -13,7 +13,7 @@ export const Cart = () => {
   const user = useSelector(state => state.cart.value.user)
   const items = useSelector(state => state.cart.value.items)
   const total = useSelector(state => state.cart.value.total)
-  const [triggerPost, result] = usePostOrderMutation()
+  const [triggerPost, { isLoading, isSuccess, isError, error }] = usePostOrderMutation()
 
   const cartIsEmpty = items.length === 0
 
@@ -21,8 +21,13 @@ export const Cart = () => {
     dispatch(removeItem(item))
   }
 
-  const confirmOrder = () => {
-    triggerPost({ items, total, user })
+  const confirmOrder = async () => {
+    try {
+      await triggerPost({ items, total, user }).unwrap()
+      dispatch(clearCart())
+    } catch (error) {
+      console.error('Falló al realizar la orden:', error)
+    }
   }
 
   return (
@@ -40,10 +45,11 @@ export const Cart = () => {
         <Text style={styles.totalText}>{formatPrice(total)}</Text>
       </View>
       {cartIsEmpty ? null : (
-        <Button disabled={cartIsEmpty} onPress={confirmOrder}>
-          Confirmar pedido
+        <Button disabled={cartIsEmpty || isLoading} onPress={confirmOrder}>
+          {isLoading ? 'Enviando pedido...' : 'Confirmar pedido'}
         </Button>
       )}
+      {isError && <Text>Error al enviar el pedido: {error.message}</Text>}
     </View>
   )
 }

@@ -18,15 +18,13 @@ export const cartSlice = createSlice({
       )
       if (itemInCart) {
         itemInCart.quantity++
-        const total = state.items.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        )
-        state.value.total = total
       } else {
         state.value.items.push({ ...item, quantity: 1 })
-        state.value.total += item.price
       }
+      state.value.total = state.value.items.reduce(
+        (total, item) => total + item.price * item.quantity,
+        0
+      )
     },
     removeItem: (state, action) => {
       const item = action.payload
@@ -35,9 +33,15 @@ export const cartSlice = createSlice({
       )
       state.value.total -= item.price * item.quantity
     },
+    clearCart: (state) => {
+      state.value.items = []
+      state.value.total = 0
+    },
   },
 })
 
-export const { addItem, removeItem } = cartSlice.actions
+export const { addItem, removeItem, clearCart } = cartSlice.actions
 
 export default cartSlice.reducer
+
+export const selectCart = state => state.cart.value
