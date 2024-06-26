@@ -10,7 +10,7 @@ export const OrdersStack = () => {
   return (
     <StackNavigator
       screenOptions={{
-        headerTitleStyle: { fontFamily: 'Unbounded-Bold' },
+        headerTitleStyle: { fontFamily: 'Unbounded-Regular' },
         headerShadowVisible: false,
       }}
     >

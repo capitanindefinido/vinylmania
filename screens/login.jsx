@@ -46,7 +46,7 @@ export const Login = () => {
       <View style={styles.section}>
         <Input
           label='Correo electronico'
-          placeholder='francisco@shoooes.com'
+          placeholder='correo@correo.com'
           value={email}
           onChangeText={setEmail}
         />

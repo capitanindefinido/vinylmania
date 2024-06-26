@@ -4,7 +4,7 @@ import { Diamond } from '../icons/diamond'
 export const Header = () => (
   <View style={styles.header}>
     <Diamond />
-    <Text style={styles.text}>Shoooes</Text>
+    <Text style={styles.text}>VitrolaManía</Text>
   </View>
 )
 

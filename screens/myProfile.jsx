@@ -1,17 +1,25 @@
 import { Image, StyleSheet, Text, View } from 'react-native'
 import { Button } from '../components/button'
 import { useNavigation } from '@react-navigation/native'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ROUTE } from '../navigation/routes'
 import { theme } from '../configs/theme'
+import { logout } from '../features/auth/authSlice'
+import { deleteSession } from '../db'
 
 export const MyProfile = () => {
   const { navigate } = useNavigation()
   const { email, photo } = useSelector(state => state.auth.value.user)
+  const dispatch = useDispatch()
 
   const goToImageSelector = () => navigate(ROUTE.IMAGE_SELECTOR)
 
   const goToMyLocation = () => navigate(ROUTE.MY_LOCATION)
+
+  const handleLogout = () => {
+    dispatch(logout())
+    deleteSession()
+  }
 
   return (
     <View style={styles.myProfile}>
@@ -27,6 +35,7 @@ export const MyProfile = () => {
       />
       <Button onPress={goToImageSelector}>Agregar foto de perfil</Button>
       <Button onPress={goToMyLocation}>Mi dirección</Button>
+      <Button onPress={handleLogout}>Cerrar sesión</Button>
     </View>
   )
 }

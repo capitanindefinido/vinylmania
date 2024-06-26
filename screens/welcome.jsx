@@ -14,8 +14,8 @@ export const Welcome = () => {
     <SafeAreaView style={styles.safeArea}>
       <Image/>
       <View style={styles.texts}>
-        <Text style={styles.title}>Shoooes</Text>
-        <Text style={styles.text}>Pisa fuerte, elige bien</Text>
+        <Text style={styles.title}>VitrolaMania</Text>
+        <Text style={styles.text}>Música para tus oídos</Text>
       </View>
       <Button onPress={handlePress}>Ingresar</Button>
     </SafeAreaView>

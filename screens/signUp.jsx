@@ -54,7 +54,7 @@ export const SignUp = () => {
         <Input
           error={errorEmail}
           label='Correo electronico'
-          placeholder='francisco@shoooes.com'
+          placeholder='correo@correo.com'
           onChangeText={setEmail}
           value={email}
         />
@@ -68,7 +68,7 @@ export const SignUp = () => {
         />
         <Input
           error={errorConfirmPassword}
-          label='Confirmar csontraseña'
+          label='Confirmar contraseña'
           placeholder='*******'
           secureTextEntry
           onChangeText={setConfirmPassword}

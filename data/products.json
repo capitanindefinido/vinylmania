@@ -4,27 +4,27 @@
     "brand": "Charly García",
     "model": "Clicks Modernos",
     "image": "https://i.scdn.co/image/ab67616d0000b273b14842a87b833bc0a9339f60",
-    "price": 99.99
+    "price": 20
   },
   {
     "id": 1,
     "brand": "Los Fabulosos Cadillacs",
     "model": "Vasos Vacíos",
     "image": "https://i.scdn.co/image/ab67616d0000b273b14842a87b833bc0a9339f60",
-    "price": 129.99
+    "price": 18
   },
   {
     "id": 2,
     "brand": "Fito Paez",
     "model": "Giros",
     "image": "https://http2.mlstatic.com/D_NQ_NP_619198-MLU69630744308_052023-O.webp",
-    "price": 79.99
+    "price": 20
   },
   {
     "id": 3,
     "brand": "Soda Stereo",
     "model": "Doble Vida",
     "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Doble_vida_cover_sodastereo.jpg",
-    "price": 89.99
+    "price": 16
   }
 ]

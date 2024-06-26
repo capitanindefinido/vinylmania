@@ -11,14 +11,14 @@ export const AuthStack = () => (
     screenOptions={{
       headerBackVisible: false,
       headerShadowVisible: false,
-      headerTitleStyle: { fontFamily: 'Unbounded-Bold' },
+      headerTitleStyle: { fontFamily: 'Unbounded-Regular' },
     }}
   >
     <Screen
       name={ROUTE.LOGIN}
       component={Login}
       options={{
-        title: 'Shoooes',
+        title: 'VitrolaManía',
       }}
     />
     <Screen

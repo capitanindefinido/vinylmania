@@ -9,48 +9,41 @@ import { usePostOrderMutation } from '../services/shopService'
 import { Button } from '../components/button'
 
 export const Cart = () => {
-  const dispatch = useDispatch()
-  const user = useSelector(state => state.cart.value.user)
-  const items = useSelector(state => state.cart.value.items)
-  const total = useSelector(state => state.cart.value.total)
-  const [triggerPost, { isLoading, isSuccess, isError, error }] = usePostOrderMutation()
-
-  const cartIsEmpty = items.length === 0
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.auth.value.user);
+  const cart = useSelector(state => state.cart.value.items)
+  const totalPrice = cart.reduce((acc, { price, quantity }) => acc + price * quantity, 0);
+  const [triggerPost, result] = usePostOrderMutation()
+  const cartIsEmpty = cart.length === 0
 
   const handleDelete = item => {
     dispatch(removeItem(item))
   }
 
-  const confirmOrder = async () => {
-    try {
-      await triggerPost({ items, total, user }).unwrap()
-      dispatch(clearCart())
-    } catch (error) {
-      console.error('Falló al realizar la orden:', error)
+  const confirmOrder = () => {
+    if (user) {
+      console.log('Confirmando compra, detalles:');
+      triggerPost({ items: cart, total: totalPrice, user, fecha: new Date().toISOString() });
+      dispatch(clearCart());
+    } else {
+      console.log('User not logged in');
     }
-  }
+  };
 
   return (
-    <View style={styles.cart}>
-      <FlatList
-        contentContainerStyle={{ gap: 32 }}
-        data={items}
-        renderItem={({ item }) => (
-          <CartItem {...item} onDelete={() => handleDelete(item)} />
-        )}
-        ListEmptyComponent={<Text>No hay productos en el carrito</Text>}
-      />
-      <View style={styles.total}>
-        <Text style={styles.totalText}>Total</Text>
-        <Text style={styles.totalText}>{formatPrice(total)}</Text>
-      </View>
-      {cartIsEmpty ? null : (
-        <Button disabled={cartIsEmpty || isLoading} onPress={confirmOrder}>
-          {isLoading ? 'Enviando pedido...' : 'Confirmar pedido'}
-        </Button>
-      )}
-      {isError && <Text>Error al enviar el pedido: {error.message}</Text>}
+    <View style={styles.container}>
+    <FlatList contentContainerStyle={{ gap: 32 }} data={cart} renderItem={({ item }) => (<CartItem {...item} onDelete={handleDelete} />)} ListEmptyComponent={<Text style={styles.totalText}>No hay productos en el carrito</Text>} />
+    <View style={styles.total}>
+      <Text style={styles.totalText}>Total</Text>
+      <Text style={styles.totalText}>{formatPrice(totalPrice)}</Text>
     </View>
+    {cartIsEmpty ? null : (
+      <View style={styles.payButon}>
+        <Button onPress={confirmOrder}>Confirmar compra</Button>
+      </View>
+    )}
+
+  </View>
   )
 }
 

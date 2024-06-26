@@ -11,7 +11,7 @@ export const MyProfileStack = () => {
   return (
     <Navigator
       screenOptions={{
-        headerTitleStyle: { fontFamily: 'Unbounded-Bold' },
+        headerTitleStyle: { fontFamily: 'Unbounded-Regular' },
         headerShadowVisible: false,
       }}
     >

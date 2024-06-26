@@ -1,6 +1,3 @@
-export const formatPrice = number => {
-  return number.toLocaleString('es-CL', {
-    style: 'currency',
-    currency: 'USD',
-  })
+export const formatPrice = (number) => {
+  return number.toLocaleString('es-CL', { style: 'currency', currency: 'CLP' });
 }

@@ -9,7 +9,7 @@ export const Button = ({ children, onPress }) => (
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: theme.colors.primary[600],
+    backgroundColor: theme.colors.primary[950],
     borderRadius: 12,
     paddingHorizontal: 16,
     paddingVertical: 8,
