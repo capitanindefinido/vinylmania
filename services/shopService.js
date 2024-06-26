@@ -20,6 +20,14 @@ export const shopApi = createApi({
           body: order,
       }),
     }),
+    getOrdersByUser: builder.query({
+      query: localId => `orders/${localId}.json`,  
+      
+      transformResponse: (response) => {
+          if (!response) return []; 
+          return Object.values(response); 
+      }
+    }),
     getProfileImage: builder.query({
       query: localId => `profileImages/${localId}.json`,
     }),
@@ -51,4 +59,5 @@ export const {
   usePostProfileImageMutation,
   useGetUserLocationQuery,
   usePostUserLocationMutation,
+  useGetOrdersByUserQuery,
 } = shopApi
