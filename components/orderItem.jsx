@@ -7,13 +7,13 @@ export const OrderItem = ({ id, total, fecha, items }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.id}>Order ID: {id}</Text>
-      <Text style={styles.total}>Total: ${total}</Text>
-      <Text style={styles.date}>Date: {formattedDate}</Text>
+      <Text style={styles.orderText}>Order ID: {id}</Text>
+      <Text style={styles.orderText}>Total: ${total}</Text>
+      <Text style={styles.orderText}>Date: {formattedDate}</Text>
       {items.map((item, index) => (
         <View key={index}>
-          <Text style={styles.brand}>Brand: {item.brand}</Text>
-          <Text style={styles.quantity}>Quantity: {item.quantity}</Text>
+          <Text style={styles.orderText}>Brand: {item.brand}</Text>
+          <Text style={styles.orderText}>Quantity: {item.quantity}</Text>
 
         </View>
       ))}

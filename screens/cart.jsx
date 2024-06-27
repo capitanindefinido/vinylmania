@@ -16,9 +16,9 @@ export const Cart = () => {
   const [triggerPost, result] = usePostOrderMutation()
   const cartIsEmpty = cart.length === 0
 
-  const handleDelete = item => {
-    dispatch(removeItem(item))
-  }
+  const handleDelete = (id) => {
+    dispatch(removeItem({ id }));
+  };
 
   const confirmOrder = () => {
     if (user) {

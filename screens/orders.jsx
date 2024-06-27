@@ -10,7 +10,7 @@ export const Orders = () => {
 
   useEffect(() => {
     console.log('Current user:', user);
-    refetch(); // Refetch the orders when the component mounts
+    refetch();
   }, [user, refetch]);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const Orders = () => {
         data={ordersArray} 
         renderItem={({ item }) => <OrderItem {...item} />} 
         keyExtractor={(item, index) => index.toString()}
-        ListEmptyComponent={<Text>No hay ordenes</Text>} 
+        ListEmptyComponent={<Text style={styles.texto}>No hay ordenes</Text>} 
       />
     </View>
   );
@@ -47,5 +47,10 @@ const styles = StyleSheet.create({
   },
   list: {
     gap: 32,
+    padding: 20,
+
   },
+  texto: {
+    fontFamily: 'Unbounded-Regular'
+  }
 });

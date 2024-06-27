@@ -30,11 +30,17 @@ export const cartSlice = createSlice({
       )
     },
     removeItem: (state, action) => {
-      const item = action.payload
-      state.value.items = state.value.items.filter(
-        itemInCart => itemInCart.id !== item.id
-      )
-      state.value.total -= item.price * item.quantity
+      const item = action.payload;
+      const itemInCart = state.value.items.findIndex(itemInCart => itemInCart.id === item.id);
+      if (itemInCart !== -1) {
+          if (state.value.items[itemInCart].quantity > 1) {
+              state.value.items[itemInCart].quantity -= 1;
+          } else {
+              state.value.items.splice(itemInCart, 1);
+          }
+          state.value.total = state.value.items.reduce((total, currentItem) => total + (currentItem.price * currentItem.quantity), 0);
+          state.value.updatedAt = new Date().toLocaleString();
+      }
     },
     clearCart: (state) => {
       state.value.items = []
